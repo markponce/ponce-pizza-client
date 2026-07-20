@@ -6,6 +6,8 @@ import PizzaOfTheDay from "../PizzaOfTheDay";
 import Header from "../Header";
 import { CartContext } from "../contexts";
 
+
+const isDev = import.meta.env.DEV;
 export const Route = createRootRoute({
   component: () => {
     const cartHook = useState([]);
@@ -18,8 +20,8 @@ export const Route = createRootRoute({
             <PizzaOfTheDay />
           </div>
         </CartContext.Provider>
-        <TanStackRouterDevtools />
-        <ReactQueryDevtools />
+        {isDev && <TanStackRouterDevtools />}
+        {isDev &&<ReactQueryDevtools />}
       </>
     );
   },
